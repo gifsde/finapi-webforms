@@ -1,0 +1,16 @@
+# # PaymentWithAccountDetails
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**execution_date** | **\DateTime** | Execution date for the money transfer(s), in the format &lt;code&gt;YYYY-MM-DD&lt;/code&gt;. May not be in the past. If not specified, then the current date will be used. | [optional]
+**batch_booking_preferred** | **bool** | This field is only relevant when you pass multiple orders. It determines whether the orders should be processed by the bank as one collective booking (in case of &lt;code&gt;true&lt;/code&gt;), or as separate bookings (in case of &lt;code&gt;false&lt;/code&gt;). Note that it is subject to the bank whether it will regard the field. | [optional] [default to true]
+**profile_id** | **string** | The profile to be applied to the web form.&lt;br/&gt;This will overwrite the default profile, if such a profile exists. | [optional]
+**redirect_url** | **string** | The URL where the end-user will be redirected to after completing the bank login and (possibly) the SCA on the bank&#39;s website. Must always be provided by mandators with &lt;code&gt;FULLY_LICENSED&lt;/code&gt; or &lt;code&gt;PISP&lt;/code&gt; license type, and may not be provided by mandators with other license types. Find more info in the &lt;a target&#x3D;&#39;_blank&#39; href&#x3D;&#39;https://documentation.finapi.io/webform/Licensed-customers-using-the-Web-Form.2832302195.html&#39;&gt;Web Form 2.0 Public Documentation&lt;/a&gt;.&lt;br/&gt;&lt;br/&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; Please note that this URL is used during the bank authentication flow. If you would like to provide a URL to which the end user will get redirected at the &lt;strong&gt;end of the web form flow&lt;/strong&gt;, please check out the &lt;a href&#x3D;&#39;https://documentation.finapi.io/webform/For-best-results!.2477654019.html#Forbestresults!-Enhanceend-userexperience!&#39; target&#x3D;&#39;_blank&#39;&gt;Web Form 2.0 Public Documentation&lt;/a&gt;. | [optional]
+**callbacks** | [**\OpenAPI\Client\Model\Callbacks**](Callbacks.md) |  | [optional]
+**sender** | [**\OpenAPI\Client\Model\PaymentWithAccountSender**](PaymentWithAccountSender.md) |  |
+**instant_payment** | **bool** | Whether the order should be submitted to the bank as an instant SEPA order. &lt;br/&gt;&lt;br/&gt;&lt;strong&gt;NOTE:&lt;/strong&gt;&lt;br/&gt;&amp;bull; Submitting an instant payment will work only with interfaces that support it.&lt;br/&gt;&amp;bull; Instant payments work only for a single order, not for collective orders.&lt;br/&gt;&amp;bull; The bank may charge a fee for instant payments, depending on the agreement between the user and the bank.&lt;br/&gt;&amp;bull; The payment might get rejected if the source and/or target account doesn&#39;t support instant payments.&lt;br/&gt;&lt;br/&gt;If you are interested in additional banks where we can support Instant Payments, please contact our Sales or support team | [optional] [default to false]
+**orders** | [**\OpenAPI\Client\Model\PaymentWithAccountOrder[]**](PaymentWithAccountOrder.md) | Payment orders |
+
+[[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
